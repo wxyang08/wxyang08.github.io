@@ -14,12 +14,16 @@
     function start(min, max, length) {
         const arr = [];
         while (arr.length < length) {
-            const prem = rand(min, max);
+            let prem = rand(min, max).toString();
+            if (prem < 10) {
+                prem = "0".concat(prem);
+            }
             if (arr.indexOf(prem) === -1) {
                 arr.push(prem);
             }
         }
-        return arr;
+        arr.sort((a, b) => a - b);
+        return arr.join(" ");
     }
 
     function getQueryVariable(variable) {
@@ -33,6 +37,7 @@
         }
         return false;
     }
+
     let query = getQueryVariable("size");
     if (!query) {
         query = 1;
