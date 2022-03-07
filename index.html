@@ -23,7 +23,7 @@
             }
         }
         arr.sort((a, b) => a - b);
-        return arr.join(" ");
+        return arr.join("\t");
     }
 
     function getQueryVariable(variable) {
@@ -43,7 +43,7 @@
         query = 1;
     }
     for (let i = 0; i < query; i++) {
-        document.writeln("<p><span style=\"font-size:80px;color:#FF5733\">" + start(1, 33, 6) + "</> " + "<span style=\"font-size:80px;color:#2894FF\">" + start(1, 16, 1) + "</span></p>");
+        document.writeln("<p><span style=\"font-size:80px;color:#FF5733;font-weight:bold\">" + start(1, 33, 6) + "</>\t" + "<span style=\"font-size:80px;color:#2894FF;font-weight:bold\">" + start(1, 16, 1) + "</span></p>");
     }
 
 </script>
