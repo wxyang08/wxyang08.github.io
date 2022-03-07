@@ -1,1 +1,46 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>财富密码</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    function rand(min, max) {
+        return parseInt(Math.random() * (max - min + 1) + min);
+    }
+
+    function start(min, max, length) {
+        const arr = [];
+        while (arr.length < length) {
+            const prem = rand(min, max);
+            if (arr.indexOf(prem) === -1) {
+                arr.push(prem);
+            }
+        }
+        return arr;
+    }
+
+    function getQueryVariable(variable) {
+        const query = window.location.search.substring(1);
+        const vars = query.split("&");
+        for (let i = 0; i < vars.length; i++) {
+            const pair = vars[i].split("=");
+            if (pair[0] === variable) {
+                return pair[1];
+            }
+        }
+        return false;
+    }
+    let query = getQueryVariable("size");
+    if (!query) {
+        query = 1;
+    }
+    for (let i = 0; i < query; i++) {
+        document.writeln("<p><span style=\"font-size:20px;color:#FF5733\">" + start(1, 33, 6) + "</> " + "<span style=\"font-size:20px;color:#2894FF\">" + start(1, 16, 1) + "</span></p>");
+    }
+
+</script>
+</body>
+</html>
